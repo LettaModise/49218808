@@ -42,6 +42,7 @@ Partial Class frmEvent
         '
         'txtEventName
         '
+        Me.txtEventName.Enabled = False
         Me.txtEventName.Location = New System.Drawing.Point(241, 24)
         Me.txtEventName.Name = "txtEventName"
         Me.txtEventName.Size = New System.Drawing.Size(134, 20)

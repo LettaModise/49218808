@@ -23,6 +23,7 @@
         btnUpdate.Text = "Update"
         btnNew.Visible = True
         btnUpdateName.Enabled = True
+        txtEventName.Enabled = False
 
     End Sub
 
@@ -81,6 +82,17 @@
     Private Sub btnUpdateName_Click(sender As Object, e As EventArgs) Handles btnUpdateName.Click
         'updateEvents(True, lbEvents.Text)
         'setSelectedEvent()
+        If btnUpdateName.Text = "Update Name" Then
+            txtEventName.Enabled = True
+            btnUpdateName.Text = "Save"
+            Return
+        End If
+
+        If btnUpdateName.Text = "Save" Then
+            txtEventName.Enabled = False
+            btnUpdateName.Text = "Update Name"
+       
+
 
         If myMethods.hasErrorsEvents(Me, "Update Title") Then
             Return
@@ -89,9 +101,14 @@
         '' txtEventName.Enabled = False
 
         myMethods.updateEvents(Me, True, lbEvents.Text)
-        ' myMethods.setSelectedEvent(Me)
-        btnUpdateName.Text = "Update"
-        btnNew.Visible = True
+            ' myMethods.setSelectedEvent(Me)
+            loadEvents()
+            myMethods.setSelectedEvent(Me)
+
+            btnNew.Visible = True
+
+
+        End If
     End Sub
 
 
@@ -113,6 +130,7 @@
         clearForm()
         btnNew.Visible = False
         btnUpdate.Text = "Save"
+        txtEventName.Enabled = True
 
     End Sub
 

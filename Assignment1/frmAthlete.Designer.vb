@@ -112,6 +112,7 @@ Partial Class frmAthlete
         '
         'dtpBrthDate
         '
+        Me.dtpBrthDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpBrthDate.Location = New System.Drawing.Point(272, 130)
         Me.dtpBrthDate.Name = "dtpBrthDate"
         Me.dtpBrthDate.Size = New System.Drawing.Size(161, 20)
@@ -119,6 +120,7 @@ Partial Class frmAthlete
         '
         'dtpDateJoined
         '
+        Me.dtpDateJoined.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpDateJoined.Location = New System.Drawing.Point(272, 192)
         Me.dtpDateJoined.Name = "dtpDateJoined"
         Me.dtpDateJoined.Size = New System.Drawing.Size(161, 20)

@@ -14,8 +14,8 @@
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         myMethods.searchAthlete(Me, txtMemNo.Text)
-        MessageBox.Show("Select or enter athlete member number")
-        Return
+
+
     End Sub
 
     Private Sub lbAthletes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbAthletes.SelectedIndexChanged
@@ -29,9 +29,9 @@
   
         Dim myNewMembNo As String
 
-        If myMethods.hasErrorsAthlete(Me) Then
-            Return
-        End If
+        'If myMethods.hasErrorsAthlete(Me) Then
+        'Return
+        'End If
 
 
         If isUpdate = False Then
@@ -41,7 +41,7 @@
 
 
         myMethods.saveAthleteData(isUpdate, myAthletesList, txtMemNo.Text, txtNameSur.Text, dtpBrthDate.Value, myMethods.getGender(Me), dtpDateJoined.Value, txtFeeOutstanding.Text)
-        myMethods.saveAthletesToFile(myAthletesList)
+        'myMethods.saveAthletesToFile(myAthletesList)
         myMethods.loadAthletes(Me)
         myMethods.setSelectedAthlete(Me)
 
