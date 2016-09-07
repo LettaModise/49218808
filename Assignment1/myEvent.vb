@@ -4,6 +4,7 @@
     Private myRegFee As Double
     Private myLoc As String
     Private myDis As Double
+    r
 
 
     Property Title As String
