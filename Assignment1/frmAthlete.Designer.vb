@@ -40,6 +40,7 @@ Partial Class frmAthlete
         Me.lbAthletes = New System.Windows.Forms.ListBox()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnNew = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtMemNo
@@ -69,6 +70,7 @@ Partial Class frmAthlete
         '
         'txtNameSur
         '
+        Me.txtNameSur.Enabled = False
         Me.txtNameSur.Location = New System.Drawing.Point(272, 86)
         Me.txtNameSur.Name = "txtNameSur"
         Me.txtNameSur.Size = New System.Drawing.Size(161, 20)
@@ -112,6 +114,7 @@ Partial Class frmAthlete
         '
         'dtpBrthDate
         '
+        Me.dtpBrthDate.Enabled = False
         Me.dtpBrthDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpBrthDate.Location = New System.Drawing.Point(272, 130)
         Me.dtpBrthDate.Name = "dtpBrthDate"
@@ -120,6 +123,7 @@ Partial Class frmAthlete
         '
         'dtpDateJoined
         '
+        Me.dtpDateJoined.Enabled = False
         Me.dtpDateJoined.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpDateJoined.Location = New System.Drawing.Point(272, 192)
         Me.dtpDateJoined.Name = "dtpDateJoined"
@@ -128,6 +132,7 @@ Partial Class frmAthlete
         '
         'txtFeeOutstanding
         '
+        Me.txtFeeOutstanding.Enabled = False
         Me.txtFeeOutstanding.Location = New System.Drawing.Point(272, 228)
         Me.txtFeeOutstanding.Name = "txtFeeOutstanding"
         Me.txtFeeOutstanding.Size = New System.Drawing.Size(161, 20)
@@ -154,6 +159,7 @@ Partial Class frmAthlete
         'rbMale
         '
         Me.rbMale.AutoSize = True
+        Me.rbMale.Enabled = False
         Me.rbMale.Location = New System.Drawing.Point(272, 161)
         Me.rbMale.Name = "rbMale"
         Me.rbMale.Size = New System.Drawing.Size(48, 17)
@@ -165,6 +171,7 @@ Partial Class frmAthlete
         'rbFemale
         '
         Me.rbFemale.AutoSize = True
+        Me.rbFemale.Enabled = False
         Me.rbFemale.Location = New System.Drawing.Point(374, 161)
         Me.rbFemale.Name = "rbFemale"
         Me.rbFemale.Size = New System.Drawing.Size(59, 17)
@@ -200,11 +207,21 @@ Partial Class frmAthlete
         Me.btnNew.Text = "New"
         Me.btnNew.UseVisualStyleBackColor = True
         '
+        'btnDelete
+        '
+        Me.btnDelete.Location = New System.Drawing.Point(23, 348)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(75, 23)
+        Me.btnDelete.TabIndex = 21
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.UseVisualStyleBackColor = True
+        '
         'frmAthlete
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(454, 337)
+        Me.ClientSize = New System.Drawing.Size(454, 404)
+        Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.lbAthletes)
@@ -247,4 +264,5 @@ Partial Class frmAthlete
     Friend WithEvents lbAthletes As System.Windows.Forms.ListBox
     Friend WithEvents btnUpdate As System.Windows.Forms.Button
     Friend WithEvents btnNew As System.Windows.Forms.Button
+    Friend WithEvents btnDelete As System.Windows.Forms.Button
 End Class

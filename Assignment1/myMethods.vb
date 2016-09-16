@@ -723,6 +723,14 @@
         If myAthFrm.txtNameSur.Text.Trim() = "" Then
             MessageBox.Show("Please fill in a valid name and surname")
             Return True
+
+        End If
+
+        Dim mytestName As Double
+
+        If Double.TryParse(myAthFrm.txtNameSur.Text, mytestName) Then
+            MessageBox.Show("Enter a valid name and surname")
+            Return True
         End If
 
         If myAthFrm.rbMale.Checked = False And myAthFrm.rbFemale.Checked = False Then
@@ -747,13 +755,21 @@
             Return True
         End If
 
-        If CInt(Microsoft.VisualBasic.DateDiff(DateInterval.Day, myAthFrm.dtpBrthDate, myAthFrm.dtpDateJoined)) < 0 Then
+        If CInt(Microsoft.VisualBasic.DateDiff(DateInterval.Day, myAthFrm.dtpBrthDate.Value, myAthFrm.dtpDateJoined.Value)) < 0 Then
             MessageBox.Show("Birth date must be greater than the date joined")
             Return True
 
 
         End If
+
+        If DateDiff(DateInterval.Year, myAthFrm.dtpBrthDate.Value, myAthFrm.dtpDateJoined.Value) < 16 Then
+            MessageBox.Show("Athlete must be older than 16")
+            Return True
+        End If
+
+
         Return False
+
     End Function
 
     ''Error checking
@@ -863,5 +879,29 @@
         Return False
     End Function
 
+    Public Shared Function getAthResults(ByRef memNo As String) As Integer
+        Dim mySql As String
+
+        Dim myCount As Integer
+        Dim mydatable As DataTable
+
+        mySql = "SELECT Count (MemNo) as reCount from RaceResults where MemNo = '" & memNo & "'"
+
+        mydatable = fileIO.selectDBData(mySql)
+
+        myCount = CInt(mydatable(0).Item(0))
+
+        Return myCount
+
+    End Function
+
+    Public Shared Sub deleteAthlete(ByRef memNo As String)
+        Dim mySql As String
+
+        mySql = "DELETE FROM Athletes where MemNo = '" & memNo & "'"
+
+        fileIO.modifyDBData(mySql)
+
+    End Sub
 
 End Class
